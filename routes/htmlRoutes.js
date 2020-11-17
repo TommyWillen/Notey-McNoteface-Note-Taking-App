@@ -2,7 +2,11 @@
 const path = require("path");
 
 module.exports = app => {
-  // creates a pathway for the notes.html page
+  // creates a pathway for the notes.html and index.html pages
+  app.get("/", function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/index.html"));
+  });
+  
   app.get("/notes", function (req, res) {
     res.sendFile(path.join(__dirname, "../public/notes.html"));
   });
